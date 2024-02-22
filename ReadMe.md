@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <html>
+<html>
   <head>
     <title>Web Design Podcast</title>
-  </head>
+    </head>
 <BODY>
     <h1>Web Design Podcast</h1>
-    <a href="podcast.mp3">Podcast</a>
-    <a href="podcast.txt"> Podcast Transcript</a>
+    <a href="podcast.mp3">Podcast episode 1</a>
+    <a href="podcast.txt">Podcast Transcript</a>
 </BODY>
 </html>
