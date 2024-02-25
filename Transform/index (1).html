@@ -44,8 +44,10 @@ nav ul { list-style-type: none;
 }
 nav li { border-bottom: 1px solid #ffffff;
 }
-nav a { text-decoration: none; display: block; padding: 15px;
-transition: background-color 2s linear; }
+nav a { text-decoration: none; 
+        display: block;
+		padding: 15px;
+}
 nav a:link { color: #ffffff; }
 nav a:visited { color: #eaeaea; }
 nav a:hover {  color: #869dc7;
@@ -62,12 +64,10 @@ h2 { color: #869dc7;
 	 margin: 5px;
 }
 
-figure {   float: right;
-		   margin: 10px;
-           padding: 5px;
-		   background-color: #FFF;
-		   border: 1px solid #CCC;
-		   box-shadow: 5px 5px 5px #828282;
+figure { float: right; margin: 10px; background-color: #FFF;
+padding: 5px; border: 1px solid #CCC;
+box-shadow: 5px 5px 5px #828282;
+transform: rotate(3deg); 
 }
 figcaption { text-align: center;
 		   font-size: .8em;
@@ -83,11 +83,12 @@ footer {font-size:70%;
             color: #FF0000;		  
 }
 #offer { background-color: #eaeaea;
-          width: 10em;
-		  margin: auto;
-		  text-align: center;
+width: 10em;
+margin: auto;
+text-align: center;
+transform: scale(2); }
+header, main, nav, footer, figure, figcaption { display: block; 
 }
-header, main, nav, footer, figure, figcaption { display: block; }
 @media only screen and (max-width: 1024px) {
 	body { margin: 0; background-color: #869dc7;}
 	#wrapper { width: auto; margin: 0;}                                                              
@@ -153,3 +154,4 @@ header, main, nav, footer, figure, figcaption { display: block; }
   </div> 
 </body>
 </html>
+
