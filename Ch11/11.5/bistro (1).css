@@ -36,12 +36,17 @@ nav {  background-color: #00005D;
 	   text-align: right; 
 	   padding-right: 2em;
 } 
-nav ul { list-style-type: none; 
-        margin: 0;
-}
-nav li { padding: 0.5em;
-      display: inline-block;
-}
+nav ul ul { position: absolute;
+	background-color: #5564A0;
+	padding: 0;
+	text-align: left;
+	display: none; }
+	nav ul ul li { border: 1px solid #00005D;
+		display: block;
+		width: 8em;
+		padding-left: 1em;
+		margin-left: 0; }
+		nav li:hover ul { display: block; }
 nav a { text-decoration: none; 
        display: block;
 }
