@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Fiddle</title>
+    <link rel="icon" href="https://img.icons8.com/fluency/48/programming.png">
+    <style>
+        body {
+            margin: 0;
+            background-color: #111111;
+            color: white;
+            overflow: hidden;
+            font-family: 'Segoe UI Variable', 'Segoe UI', -apple-system, system-ui;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: black;
+            color: white;
+            width: 100%;
+            user-select: none;
+            height: 32px;
+        }
+
+        header h1 {
+            font-weight: 600;
+            margin: 4px 8px;
+            font-size: 16px;
+        }
+
+        header ul li:first-child {
+            float: left;
+        }
+
+        header ul li {
+            float: right;
+        }
+
+        header ul li a {
+            padding: 8px;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        header ul li a span.icon-text {
+            font-weight: normal;
+            margin-right: 0;
+            display: inline-block;
+            font-family: 'Segoe UI Variable', 'Segoe UI', -apple-system, system-ui;
+            font-size: 0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        header ul li a:hover {
+            background-color: #222222;
+            cursor: pointer;
+        }
+
+        header ul li a:hover span.icon-text {
+            font-size: 16px;
+            margin-right: 5px;
+        }
+
+        main {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 42px 10px 10px 10px;
+        }
+
+        #console {
+            background-color: #222222;
+            border-radius: 10px;
+            width: calc(100vw - 40px);
+            height: calc(100vh - 72px);
+            padding: 10px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        #console .welcome-msg h2, #console .welcome-msg p {
+            margin: 0;
+            user-select: none;
+        }
+
+        .event {
+            background-color: #333333;
+            min-height: 16px;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            font-family: monospace;
+            display: grid;
+            grid-template-columns: 24px auto;
+            grid-template-rows: auto;
+            width: calc(100vw - 50px);
+            margin-bottom: 5px;
+        }
+
+        .event .icon:before {
+            content: "";
+        }
+
+        .event.error {
+            background-color: #481313;
+        }
+
+        .event.error .icon:before {
+            content: "";
+        }
+
+        .event.warn {
+            background-color: #484413;
+        }
+
+        .event.warn .icon:before {
+            content: "";
+        }
+
+        .event.info {
+            background-color: #133548;
+        }
+
+        .event.info .icon:before {
+            content: "";
+        }
+
+        .startBtn:after {
+            content: "";
+        }
+
+        .stepBtn:after {
+            content: "";
+        }
+
+        .clearBtn:after {
+            content: "";
+        }
+    </style>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css">
+</head>
+<body>
+<header>
+    <ul style="list-style: none; margin: 0; padding: 0; overflow: hidden;">
+        <li><h1>Fiddle Console</h1></li>
+        <li><a class="startBtn fa-sharp fa-solid" onclick="startCode()">
+            <span class="icon-text">Run Code</span>
+        </a></li>
+        <li><a class="stepBtn fa-sharp fa-solid" onclick="stepCode()">
+            <span class="icon-text">Step</span>
+        </a></li>
+        <li><a class="clearBtn fa-sharp fa-solid" onclick="console.clear(); index = 1;">
+            <span class="icon-text">Clear Console</span>
+        </a></li>
+    </ul>
+</header>
+<main>
+    <div id="console">
+        <div class="welcome-msg">
+            <h2>Welcome to the console!</h2>
+            <p>This is where the output of your code will go.</p>
+        </div>
+        <noscript>
+            <div class="event error">
+                <div class="icon fa-sharp fa-solid"></div>
+                <div>The Fiddle Console failed to load the necessary code because JavaScript is disabled. Please enable
+                    it in your browser settings, or use a browser that supports JavaScript natively.</div>
+            </div>
+        </noscript>
+    </div>
+</main>
+<script src="/javascript/fiddle/handler.js"></script>
+<script>
+    function startCode() {
+        try {document.querySelector(".welcome-msg").style.display = "none";}
+        finally {
+            try {
+                let variable = 5;
+                console.log(variable);
+                variable += 5;
+                console.log(variable);
+                const add_this = 2;
+
+                function incrementNumber(inital, incrementor) {
+                    return inital + incrementor;
+                }
+
+                console.log(incrementNumber(variable, add_this));
+            } catch (e) {
+                console.error(e)
+            }
+        }
+    }
+
+    let index = 1;
+
+    function stepCode() {
+        try {document.querySelector(".welcome-msg").style.display = "none";}
+        finally {
+            if (index === 1) {console.log(5); index++;}
+            else if (index === 2) {console.log(10); index++;}
+            else if (index === 3) {console.log(2+10); index++;}
+            else {console.info("Code execution completed. Clear the console to rerun.")}
+        }
+    }
+</script>
+</body>
+</html>
+       
